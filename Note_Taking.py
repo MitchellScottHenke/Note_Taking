@@ -6,7 +6,17 @@ Trying to follow Gemini
 
 # Import module (Tkinter)
 import tkinter as tk
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import asksaveasfilename
+
+
+# Handle Events
+def save_note():
+    # Code to save the note
+    filename = asksaveasfilename(defaultextension=".txt", filetypes=[("Text Files", "*.txt")])
+    if filename:
+        with open(filename, "w") as file:
+            file.write(text_box.get(1.0, tk.END))
+
 
 # Create the main window
 root = tk.Tk()
